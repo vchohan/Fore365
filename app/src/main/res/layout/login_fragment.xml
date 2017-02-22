@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+        <!-- login page container-->
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrey900">
+
+            <!-- login with email container-->
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="50dp"
+                    android:layout_gravity="center">
+
+                <EditText
+                        android:id="@+id/login_email_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_email"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        android:textColorHint="@color/colorWhite" />
+
+                <EditText
+                        android:id="@+id/login_password_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_password"
+                        android:inputType="text|textNoSuggestions|textPassword"
+                        android:imeOptions="actionGo"
+                        android:textColorHint="@color/colorWhite" />
+
+                <Button
+                        android:id="@+id/login_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="LOGIN"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/border_view_rectangle"
+                        android:padding="10dp" />
+
+            </LinearLayout>
+
+            <!-- divider-->
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_above="@+id/footer_container"
+                    android:alpha=".5"
+                    android:background="@android:color/white" />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="---------- or login with ----------"
+                    android:textColor="@color/colorWhite" />
+
+            <!-- other login options container-->
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
+
+                <!-- login with google button container-->
+                <LinearLayout
+                        android:id="@+id/login_google"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="20dp"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorRed500">
+
+                    <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="20dp"
+                            android:src="@drawable/google_logo" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Login with Google"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorWhite" />
+
+                </LinearLayout>
+
+                <!-- login with facebook button container-->
+                <LinearLayout
+                        android:id="@+id/login_facebook"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="20dp"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorIndigo500">
+
+                    <com.facebook.login.widget.LoginButton
+                            android:id="@+id/facebook_login_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

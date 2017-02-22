@@ -1,6 +1,7 @@
 package com.vchohan.fore365;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -124,7 +125,7 @@ public class IntroActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         sharedPreferencesManager.setFirstTimeLaunch(false);
-//        startActivity(new Intent(IntroActivity.this, LoginRegisterActivity.class));
+        startActivity(new Intent(IntroActivity.this, LoginRegisterActivity.class));
         finish();
     }
 

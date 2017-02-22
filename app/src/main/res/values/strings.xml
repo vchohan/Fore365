@@ -48,5 +48,6 @@
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
     <string name="title_activity_map_view">Map</string>
+    <string name="title_activity_main_activity">Main Activity</string>
 
 </resources>

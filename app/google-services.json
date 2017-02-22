@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "258557193345",
+    "firebase_url": "https://fore365-c3fc2.firebaseio.com",
+    "project_id": "fore365-c3fc2",
+    "storage_bucket": "fore365-c3fc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258557193345:android:523df313e047b901",
+        "android_client_info": {
+          "package_name": "com.vchohan.fore365"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258557193345-7ft9q6kti3t3cmu9adknbbm6id624v37.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vchohan.fore365",
+            "certificate_hash": "3a6e793544981fe78dfcace27257719835d7689c"
+          }
+        },
+        {
+          "client_id": "258557193345-shoqcocc3sscbqdkn9r3vp6a16h7hf5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYxEPK9K66xvF2V3-TSigCNtC_bFuhJtg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258557193345-shoqcocc3sscbqdkn9r3vp6a16h7hf5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
