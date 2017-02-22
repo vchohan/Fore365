@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">Fore365</string>
+
+    <!-- splash screen -->
+
+    <!-- intro screen -->
+    <string name="intro_page_title_one">Hi I am title ONE</string>
+    <string name="intro_page_title_two">Hi I am title TWO</string>
+    <string name="intro_page_title_three">Hi I am title THREE</string>
+    <string name="intro_page_title_four">Hi I am title FOUR</string>
+    <string name="intro_page_description_one">Hi I am description ONE. I can show what ever you want to say.</string>
+    <string name="intro_page_description_two">Hi I am description TWO. I can show what ever you want to say.</string>
+    <string name="intro_page_description_three">Hi I am description THREE. I can show what ever you want to say.</string>
+    <string name="intro_page_description_four">Hi I am description FOUR. I can show what ever you want to say.</string>
+    <string name="intro_page_skip_text">SKIP</string>
+    <string name="intro_page_next_text">NEXT</string>
+    <string name="intro_page_done_text">DONE</string>
+
+    <!-- login / register screen -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="auth_failed">Authentication failed</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+
+    <!-- facebook app id-->
+    <string name="facebook_app_id">1358523850836559</string>
+
+    <!-- main screen -->
+
+    <!-- golf factor screen -->
+
+    <!-- tee time screen -->
+
+
+    <!-- splash screen -->
+    <!-- splash screen -->
+
+    <!-- other strings-->
+    <string name="progress_bar_loading">Loading</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- menu -->
+    <string name="action_filter">Filter</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="title_activity_map_view">Map</string>
+
 </resources>
