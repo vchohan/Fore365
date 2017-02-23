@@ -127,7 +127,7 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            Intent mainIntent = new Intent(getContext(), MainActivity.class);
+            Intent mainIntent = new Intent(getContext(), MapsActivity.class);
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(mainIntent);
         }
@@ -264,9 +264,7 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
                     // the auth state listener will be notified and logic to handle the
                     // signed in user can be handled in the listener.
                     if (task.isSuccessful()) {
-                        Intent mainIntent = new Intent(getContext(), MainActivity.class);
-                        mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(mainIntent);
+                        updateUI(null);
                     } else {
                         Log.w(TAG, "signInWithCredential", task.getException());
                         Toast.makeText(getContext(), "Authentication failed.", Toast.LENGTH_SHORT).show();
