@@ -13,4 +13,10 @@
         tools:showIn="@layout/main_app_bar"
         tools:context="com.vchohan.fore365.MainActivity">
 
+    <TextView
+            android:id="@+id/get_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Place Picker"/>
+
 </RelativeLayout>

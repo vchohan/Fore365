@@ -6,12 +6,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
@@ -112,6 +110,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
         MapStyleOptions style = MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style_retro);
@@ -169,19 +168,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onCameraMoveStarted(int i) {
                 mCurrentLocation = false;
                 mCurrentLocationButton.setVisibility(View.VISIBLE);
-            }
-        });
-
-        mCurrentLocationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onLocationChanged(mLastLocation);
-                CameraUpdate cameraUpdate = null;
-                Location location = mMap.getMyLocation();
-                if (location != null) {
-                    LatLng latLng = new LatLng(latitude, longitude);
-                            cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 12);
-                            mMap.animateCamera(cameraUpdate);
+                mCurrentLocationButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onLocationChanged(mLastLocation);
+                        Location location = mMap.getMyLocation();
+                        if (location != null) {
+                            LatLng latLng = new LatLng(latitude, longitude);
+                            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+                            mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
 //                    CameraPosition cameraPosition = new CameraPosition.Builder()
 //                        .target(latLng)      // Sets the center of the map to Mountain View
@@ -190,8 +185,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //                        .tilt(30)                   // Sets the tilt of the camera to 30 degrees
 //                        .build();                   // Creates a CameraPosition from the builder
 //                    mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                    mCurrentLocation = true;
-                }
+                            mCurrentLocation = true;
+                        }
+                    }
+                });
             }
         });
 
@@ -205,13 +202,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-        mCurrLocationMarker = mMap.addMarker(markerOptions);
+//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+//        mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
         Toast.makeText(this, "Your Current Location", Toast.LENGTH_LONG).show();
+
         mCurrentLocation = true;
         mCurrentLocationButton.setVisibility(View.GONE);
 

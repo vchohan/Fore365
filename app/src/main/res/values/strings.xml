@@ -43,6 +43,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="google_place_key">AIzaSyAL9B6z0MdH4JexIFwrfdE7m9dLDUfzPtY</string>
+
     <!-- menu -->
     <string name="action_filter">Filter</string>
     <string name="action_settings">Settings</string>

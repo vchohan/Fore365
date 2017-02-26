@@ -1,5 +1,9 @@
 package com.vchohan.fore365;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -46,8 +50,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private TextView navProfileName, navProfileEmail;
 
+    private TextView getPlace;
+
+    int PLACE_PICKER_REQUEST = 1;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Initializing Facebook SDK, must initialize before setContentView
@@ -58,6 +66,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initializeFirebase();
         setupToolBarAndNavigationDrawer();
         setupFacebookLogout();
+
+        getPlace = (TextView) findViewById(R.id.get_place);
+        getPlace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                Intent intent;
+                try {
+                    intent = builder.build(MainActivity.this);
+                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Place place = PlacePicker.getPlace(data, this);
+                String address = String.format("Place: %s", place.getAddress());
+                getPlace.setText(address);
+            }
+        }
     }
 
     private void initializeFirebase() {
