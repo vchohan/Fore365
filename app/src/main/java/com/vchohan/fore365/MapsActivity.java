@@ -33,19 +33,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     GoogleApiClient.OnConnectionFailedListener,
     LocationListener {
 
+    public static final String TAG = MapsActivity.class.getSimpleName();
+
     private static final String GOOGLE_API_KEY = "AIzaSyC43EsGd-QMm0PMigeMmQW9Qhg_tjyyqeg";
 
+    private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+
     private GoogleMap mMap;
+
+    private GoogleApiClient mGoogleApiClient;
+
+    private Location mLastLocation;
 
     private double latitude;
 
     private double longitude;
 
     private int PROXIMITY_RADIUS = 10000;
-
-    private GoogleApiClient mGoogleApiClient;
-
-    private Location mLastLocation;
 
     private Marker mCurrLocationMarker;
 
